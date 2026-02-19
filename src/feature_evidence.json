@@ -1,0 +1,195 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-multi-page-marketing-website-that-closely-matches-the-information-architecture-and-ux-patterns-of-https-www-clearpointstrategy-com-header-navigation-homepage-sections-inner-pages-footer-using-original-copy-and-assets-no-proprietary-text-images-copied-from-the-reference-site",
+      "featureTitle": "Build a multi-page marketing website that closely matches the information architecture and UX patterns of https://www.clearpointstrategy.com/ (header navigation, homepage sections, inner pages, footer), using original copy and assets (no proprietary text/images copied from the reference site).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/components/layout/SiteHeader.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/PlatformPage.tsx",
+        "frontend/src/pages/SolutionsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-homepage-with-clear-scroll-based-sections-comparable-to-the-reference-site-s-homepage-hero-social-proof-feature-value-sections-benefits-testimonials-case-studies-preview-resources-preview-and-final-cta-band-including-appropriate-spacing-typography-hierarchy-and-section-transitions",
+      "featureTitle": "Implement the homepage with clear, scroll-based sections comparable to the reference site’s homepage (hero, social proof, feature/value sections, benefits, testimonials/case studies preview, resources preview, and final CTA band), including appropriate spacing, typography hierarchy, and section transitions.",
+      "files": [
+        "frontend/src/components/marketing/FeatureCards.tsx",
+        "frontend/src/components/marketing/LogoStrip.tsx",
+        "frontend/src/components/marketing/TestimonialPreview.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-resources-area-that-supports-listing-content-cards-and-viewing-a-content-detail-page-with-client-side-routing-and-consistent-templates-title-summary-cover-image-body-content-author-date-and-related-items",
+      "featureTitle": "Create a Resources area that supports listing content cards and viewing a content detail page, with client-side routing and consistent templates (title, summary, cover image, body content, author/date, and related items).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/resources/RelatedResources.tsx",
+        "frontend/src/data/resources.ts",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/ResourceDetailPage.tsx",
+        "frontend/src/pages/ResourcesListPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-contact-page-with-a-form-name-email-company-organization-message-and-clear-success-error-states-persist-form-submissions-in-the-motoko-backend-and-expose-a-read-api-for-later-retrieval",
+      "featureTitle": "Add a Contact page with a form (name, email, company/organization, message) and clear success/error states. Persist form submissions in the Motoko backend and expose a read API for later retrieval.",
+      "files": [
+        "frontend/src/components/marketing/FormField.tsx",
+        "frontend/src/hooks/useSaveContact.ts",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-site-wide-ui-polish-similar-to-the-reference-site-consistent-section-widths-large-type-marketing-typography-hover-focus-states-accessible-contrast-and-light-motion-e-g-subtle-fade-slide-in-on-scroll-without-harming-performance",
+      "featureTitle": "Implement site-wide UI polish similar to the reference site: consistent section widths, large-type marketing typography, hover/focus states, accessible contrast, and light motion (e.g., subtle fade/slide-in on scroll) without harming performance.",
+      "files": [
+        "frontend/src/components/marketing/Section.tsx",
+        "frontend/src/hooks/useRevealOnScroll.ts",
+        "frontend/src/index.css",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/PlatformPage.tsx",
+        "frontend/src/pages/ResourceDetailPage.tsx",
+        "frontend/src/pages/ResourcesListPage.tsx",
+        "frontend/src/pages/SolutionsPage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-creative-coherent-visual-theme-suitable-for-a-modern-b2b-strategy-software-marketing-site-avoid-a-blue-purple-dominant-palette-define-and-use-a-consistent-system-for-colors-typography-buttons-cards-and-section-backgrounds-across-all-pages",
+      "featureTitle": "Apply a creative, coherent visual theme suitable for a modern B2B strategy/software marketing site (avoid a blue/purple-dominant palette). Define and use a consistent system for colors, typography, buttons, cards, and section backgrounds across all pages.",
+      "files": [
+        "frontend/src/components/marketing/MarketingPrimitives.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-basic-seo-and-social-metadata-for-all-primary-routes-title-description-opengraph-image-and-ensure-accessible-semantics-landmarks-headings-alt-text-for-images",
+      "featureTitle": "Add basic SEO and social metadata for all primary routes (title, description, OpenGraph image) and ensure accessible semantics (landmarks, headings, alt text for images).",
+      "files": [
+        "frontend/src/components/seo/Seo.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/PlatformPage.tsx",
+        "frontend/src/pages/ResourceDetailPage.tsx",
+        "frontend/src/pages/ResourcesListPage.tsx",
+        "frontend/src/pages/SolutionsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-deliver-the-complete-runnable-project-output-frontend-motoko-backend-so-the-site-can-be-built-and-deployed-as-is-on-the-internet-computer-template-environment",
+      "featureTitle": "Deliver the complete runnable project output (frontend + Motoko backend) so the site can be built and deployed as-is on the Internet Computer template environment.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/main.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

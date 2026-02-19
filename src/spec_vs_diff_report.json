@@ -1,0 +1,102 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T19:16:32.005Z",
+  "summary": "The diff adds a TanStack Router-based multi-page marketing frontend skeleton (layout/header/footer, marketing sections/components, resources seed data, SEO helper, scroll-reveal hook) and a Motoko backend with contact submission storage and admin-gated read APIs. However, several BuildRequest acceptance criteria are not evidenced in the diff, notably stable persistence/migration for contact submissions, required backend endpoint names, full Resources/Contact page implementations/validation, per-route SEO usage, and inclusion of the required generated image assets.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Resources listing + detail pages with consistent templates (title, summary, cover image, body content, author/date, related items), at least 6 seed resources, and routes that work with refresh.",
+      "reason": "Routes are defined, and seed data exists, but the diff does not include the actual ResourcesListPage/ResourceDetailPage implementations nor any evidence that direct navigation/refresh is configured to work. Also only 2 resources are visible in the truncated seed file, so 6+ cannot be confirmed.",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "frontend/src/data/resources.ts (truncated)",
+        "frontend/src/components/resources/RelatedResources.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Contact page form with client-side validation (required fields + email format), success/error states, backend persistence in stable state across upgrades, and backend endpoints createSubmission + listSubmissions (list not exposed in UI).",
+      "reason": "Backend endpoints are named saveContact/getAllContacts/getContact rather than createSubmission/listSubmissions; backend uses non-stable in-memory vars/Map with no stable storage or migration evidence. No ContactPage code is shown to confirm validation and UI success/error states.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useSaveContact.ts"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Each primary page sets a unique title and meta description; OpenGraph tags present referencing generated OG image; accessible semantics and alt text.",
+      "reason": "A Seo component exists that sets document title and meta/OG tags, but there is no evidence it is used on each primary route/page. Alt text is present for at least one image, but not verifiable site-wide from the diff.",
+      "evidence": [
+        "frontend/src/components/seo/Seo.tsx",
+        "frontend/src/components/marketing/LogoStrip.tsx"
+      ]
+    },
+    {
+      "requirement": "Generate and include the required image assets (hero illustration, partner logos strip, feature icons set, testimonial headshots, OpenGraph image) as newly generated visuals.",
+      "reason": "Frontend references some generated asset paths, but the diff summary does not show the actual image files being added, so their presence cannot be confirmed.",
+      "evidence": [
+        "frontend/src/components/marketing/LogoStrip.tsx",
+        "frontend/src/components/seo/Seo.tsx",
+        "frontend/src/data/resources.ts (truncated)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Admin authorization system and secret-token initialization for access control around contact submission reads.",
+      "reason": "The BuildRequest requires a read API not exposed in UI, but does not request an admin role system, secret token initialization, or authorization mixins. The diff adds AccessControl/MixinAuthorization and a URL secret parameter flow.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Internet Identity authentication provider/hooks added even though authentication is not required for this request.",
+      "reason": "The request states Internet Identity is allowed if authentication is later needed, but does not require adding an auth system now; the diff adds an InternetIdentityProvider/hook integration and uses it in actor creation.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts (truncated)",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.66,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/layout/SiteFooter.tsx",
+    "frontend/src/components/layout/SiteHeader.tsx",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/components/marketing/FeatureCards.tsx",
+    "frontend/src/components/marketing/FormField.tsx",
+    "frontend/src/components/marketing/LogoStrip.tsx",
+    "frontend/src/components/marketing/MarketingPrimitives.tsx",
+    "frontend/src/components/marketing/Section.tsx",
+    "frontend/src/components/marketing/TestimonialPreview.tsx",
+    "frontend/src/components/resources/RelatedResources.tsx",
+    "frontend/src/components/seo/Seo.tsx",
+    "frontend/src/data/resources.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useRevealOnScroll.ts",
+    "frontend/src/hooks/useSaveContact.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/PlatformPage.tsx",
+    "frontend/src/pages/ResourceDetailPage.tsx",
+    "frontend/src/pages/ResourcesListPage.tsx",
+    "frontend/src/pages/SolutionsPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

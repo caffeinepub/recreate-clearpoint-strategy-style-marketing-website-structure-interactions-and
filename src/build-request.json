@@ -1,0 +1,178 @@
+{
+  "kind": "build_request",
+  "title": "Recreate ClearPoint Strategy-style marketing website (structure, interactions, and responsive UI)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Build a multi-page marketing website that closely matches the information architecture and UX patterns of https://www.clearpointstrategy.com/ (header navigation, homepage sections, inner pages, footer), using original copy and assets (no proprietary text/images copied from the reference site).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Top-level navigation includes a logo area, primary nav links, and clear calls-to-action similar in placement/behavior to the reference site (e.g., a primary CTA button in the header).",
+        "Site includes at least: Home, Platform/Product (or equivalent), Services/Solutions (or equivalent), Resources (blog/articles listing + detail page), About, and Contact pages.",
+        "All page layouts are responsive across mobile/tablet/desktop with no horizontal overflow and no broken layouts.",
+        "All user-facing text is in English and is original (not copied from the reference site)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the homepage with clear, scroll-based sections comparable to the reference site’s homepage (hero, social proof, feature/value sections, benefits, testimonials/case studies preview, resources preview, and final CTA band), including appropriate spacing, typography hierarchy, and section transitions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Homepage renders a hero section with headline, subheadline, primary CTA, secondary CTA, and a prominent hero visual.",
+        "Homepage includes a social-proof/logo strip section.",
+        "Homepage includes at least 3 feature/value cards and at least 1 testimonial/case-study style section.",
+        "Homepage includes a resources preview section linking to the resources listing page.",
+        "Homepage includes a final CTA section above the footer."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a Resources area that supports listing content cards and viewing a content detail page, with client-side routing and consistent templates (title, summary, cover image, body content, author/date, and related items).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Resources listing page shows a grid/list of content cards with cover image, title, short excerpt, and metadata.",
+        "Clicking a content card navigates to a detail page with full body content and a consistent layout.",
+        "At least 6 sample resources are included as seed content (original text).",
+        "Routes work with refresh (direct navigation to a detail URL loads correctly)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a Contact page with a form (name, email, company/organization, message) and clear success/error states. Persist form submissions in the Motoko backend and expose a read API for later retrieval.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form validates required fields and email format on the client.",
+        "On submit, the frontend calls the backend to store the submission and shows a success confirmation state.",
+        "Backend stores submissions in stable state (survives canister upgrade).",
+        "Backend provides at least: createSubmission and listSubmissions endpoints; listSubmissions is not exposed in the UI by default (API only)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement site-wide UI polish similar to the reference site: consistent section widths, large-type marketing typography, hover/focus states, accessible contrast, and light motion (e.g., subtle fade/slide-in on scroll) without harming performance.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Interactive elements (links, buttons, cards) have clear hover and focus-visible states.",
+        "Motion is subtle and respects reduced-motion preferences.",
+        "Lighthouse-like best practices are followed: no blocking mega-assets; images are optimized and appropriately sized.",
+        "All primary pages have consistent max-width, spacing scale, and typography scale."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a creative, coherent visual theme suitable for a modern B2B strategy/software marketing site (avoid a blue/purple-dominant palette). Define and use a consistent system for colors, typography, buttons, cards, and section backgrounds across all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A consistent theme is applied across all pages (same button styles, heading styles, spacing, and card styles).",
+        "Primary palette is not blue/purple-dominant; use an alternative (e.g., charcoal/off-white with green/teal accents).",
+        "Typography hierarchy is clear (H1/H2/H3/body) and consistent across pages."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add basic SEO and social metadata for all primary routes (title, description, OpenGraph image) and ensure accessible semantics (landmarks, headings, alt text for images).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each primary page sets a unique title and meta description.",
+        "OpenGraph tags are present and reference a generated OG image asset.",
+        "All images have appropriate alt text; pages use semantic headings and landmarks (header/nav/main/footer)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Deliver the complete runnable project output (frontend + Motoko backend) so the site can be built and deployed as-is on the Internet Computer template environment.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a website exactly like this https://www.clearpointstrategy.com/ and give me the output"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Project builds successfully without manual edits.",
+        "Navigation between pages works in the deployed environment.",
+        "Contact form submission works end-to-end (frontend to backend)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not copy proprietary text, images, or other copyrighted assets from https://www.clearpointstrategy.com/; use original copy and newly generated visuals while matching the overall structure and interaction patterns.",
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo); only add backend/migration.mo if stable-state migration is required.",
+    "Do not modify files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT; compose them instead.",
+    "No third-party auth providers; only Internet Identity is allowed if authentication is later needed (not required for this request)."
+  ],
+  "nonGoals": [
+    "Implementing a full CMS/editor for managing resources content.",
+    "Integrating third-party marketing tools (analytics pixels, chat widgets, email delivery providers).",
+    "Cloning exact brand identity assets (logos, illustrations, photography) from the reference site."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Abstract hero illustration with geometric shapes, modern corporate style (hero-illustration.dim_1600x900.png)",
+      "Row of 6 generic partner logos in monochrome style (partner-logos-strip.dim_1600x200.png)",
+      "Set of 6 simple outline feature icons (feature-icons-set.dim_1024x1024.png)",
+      "Testimonial portrait placeholders (3 headshots, neutral background) (testimonials-headshots.dim_900x300.png)",
+      "OpenGraph preview image with abstract shapes and title-safe area (og-image.dim_1200x630.png)"
+    ],
+    "edits": []
+  }
+}

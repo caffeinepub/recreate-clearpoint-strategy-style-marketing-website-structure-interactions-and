@@ -1,0 +1,366 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "ClearPoint-style multi-page marketing site (original content) with resources + contact form",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a multi-page marketing site with ClearPoint-like information architecture (original copy/assets), including shared header/nav, footer, and responsive layouts.",
+      "acceptanceCriteria": [
+        "Top-level navigation includes a logo area, primary nav links, and clear calls-to-action similar in placement/behavior to the reference site (e.g., a primary CTA button in the header).",
+        "Site includes at least: Home, Platform/Product (or equivalent), Services/Solutions (or equivalent), Resources (blog/articles listing + detail page), About, and Contact pages.",
+        "All page layouts are responsive across mobile/tablet/desktop with no horizontal overflow and no broken layouts.",
+        "All user-facing text is in English and is original (not copied from the reference site)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell and client-side routing for Home, Platform, Solutions, Resources (list + detail), About, and Contact; ensure route-based rendering supports direct navigation/refresh."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout that renders semantic landmarks (header/nav/main/footer) and consistent max-width/spacing wrappers across pages."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "create",
+          "description": "Implement responsive header navigation with logo area, primary links, and a primary CTA button consistent with marketing-site patterns (mobile menu included). Use shadcn-ui components (e.g., Button, Sheet/Navigation patterns) to accelerate accessible interactions; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "create",
+          "description": "Implement a multi-column footer with secondary navigation, brief company blurb (original), and contact links, matching the overall structure/patterns of the reference site while using original content."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page route and wire it into the app router and header navigation."
+        },
+        {
+          "path": "frontend/src/pages/PlatformPage.tsx",
+          "operation": "create",
+          "description": "Create the Platform/Product page with original marketing copy, sections, and reusable layout patterns; wire into router/nav."
+        },
+        {
+          "path": "frontend/src/pages/SolutionsPage.tsx",
+          "operation": "create",
+          "description": "Create the Services/Solutions page with original marketing copy and section templates; wire into router/nav."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create the About page with original copy and consistent section structure; wire into router/nav."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create the Contact page route and wire it into router/nav; form behavior is implemented under REQ-4."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement a sectioned, scroll-based homepage with hero, social proof, features, testimonial/case-study preview, resources preview, and final CTA band.",
+      "acceptanceCriteria": [
+        "Homepage renders a hero section with headline, subheadline, primary CTA, secondary CTA, and a prominent hero visual.",
+        "Homepage includes a social-proof/logo strip section.",
+        "Homepage includes at least 3 feature/value cards and at least 1 testimonial/case-study style section.",
+        "Homepage includes a resources preview section linking to the resources listing page.",
+        "Homepage includes a final CTA section above the footer."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Build the homepage section stack (hero, social proof, feature/value cards, benefits, testimonial/case-study preview, resources preview, final CTA) using original copy and generated images; include responsive typography hierarchy and spacing."
+        },
+        {
+          "path": "frontend/src/components/marketing/FeatureCards.tsx",
+          "operation": "create",
+          "description": "Create a reusable feature/value card grid (≥3 cards) with consistent hover/focus states. Use shadcn-ui Card/Button primitives where helpful; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/marketing/TestimonialPreview.tsx",
+          "operation": "create",
+          "description": "Create a testimonial/case-study style section for the homepage, including headshot placeholders and a concise quote layout."
+        },
+        {
+          "path": "frontend/src/components/marketing/LogoStrip.tsx",
+          "operation": "create",
+          "description": "Create a social-proof logo strip section using the generated partner logos strip asset and responsive layout rules."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-illustration.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated abstract hero illustration as a static frontend asset and reference it from the homepage hero visual."
+        },
+        {
+          "path": "frontend/public/assets/generated/partner-logos-strip.dim_1600x200.png",
+          "operation": "create",
+          "description": "Add the generated partner logo strip image as a static frontend asset and reference it from the homepage social-proof section."
+        },
+        {
+          "path": "frontend/public/assets/generated/feature-icons-set.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated outline feature icons set as a static frontend asset and use it as the icon source for feature/value cards."
+        },
+        {
+          "path": "frontend/public/assets/generated/testimonials-headshots.dim_900x300.png",
+          "operation": "create",
+          "description": "Add the generated testimonial headshots strip as a static frontend asset and reference it from testimonial/case-study preview sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create a Resources area with listing + detail pages using client-side routing and seeded original content with consistent templates and related items.",
+      "acceptanceCriteria": [
+        "Resources listing page shows a grid/list of content cards with cover image, title, short excerpt, and metadata.",
+        "Clicking a content card navigates to a detail page with full body content and a consistent layout.",
+        "At least 6 sample resources are included as seed content (original text).",
+        "Routes work with refresh (direct navigation to a detail URL loads correctly)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/resources.ts",
+          "operation": "create",
+          "description": "Create seed Resources content (≥6 items) with original English text including slug, title, summary/excerpt, cover image reference, body content, author, date, and tags/related pointers."
+        },
+        {
+          "path": "frontend/src/pages/ResourcesListPage.tsx",
+          "operation": "create",
+          "description": "Implement the Resources listing page with a responsive grid/list of content cards (cover image, title, excerpt, metadata) and links into the detail route."
+        },
+        {
+          "path": "frontend/src/pages/ResourceDetailPage.tsx",
+          "operation": "create",
+          "description": "Implement the Resources detail page template (title, summary, cover image, body content, author/date) plus a related-items section linking to other seeded resources."
+        },
+        {
+          "path": "frontend/src/components/resources/ResourceCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable card component for resource summaries with clear hover/focus-visible states. Use shadcn-ui Card/Button primitives where helpful; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/resources/RelatedResources.tsx",
+          "operation": "create",
+          "description": "Create a related-items module for the resource detail page that reuses the same card/list styling patterns."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire Resources routes into the router (listing and detail) and ensure route matching works on direct navigation/refresh."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Wire the homepage resources preview section to navigate to the Resources listing page and highlight a subset of seeded resources."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add a Contact page form with client validation and success/error states, calling the backend to persist submissions (UI should not expose listing).",
+      "acceptanceCriteria": [
+        "Contact form validates required fields and email format on the client.",
+        "On submit, the frontend calls the backend to store the submission and shows a success confirmation state.",
+        "Backend stores submissions in stable state (survives canister upgrade).",
+        "Backend provides at least: createSubmission and listSubmissions endpoints; listSubmissions is not exposed in the UI by default (API only)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Implement the contact form (name, email, organization, message) with client-side validation, loading state, and success/error confirmation UI; call the backend capability via the typed actor method to save a submission (saveContact) and do not add any UI to list submissions."
+        },
+        {
+          "path": "frontend/src/hooks/useSaveContact.ts",
+          "operation": "create",
+          "description": "Create a hook that uses the existing actor connection to call the backend capability to persist a contact submission, exposing mutation state for UI success/error handling."
+        },
+        {
+          "path": "frontend/src/components/marketing/FormField.tsx",
+          "operation": "create",
+          "description": "Create a small reusable form field wrapper for consistent labels, help text, and error messages. Use shadcn-ui Input/Textarea/Label primitives where helpful; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply site-wide UI polish: consistent widths/typography, hover/focus states, accessible contrast, and subtle scroll-based motion respecting reduced motion.",
+      "acceptanceCriteria": [
+        "Interactive elements (links, buttons, cards) have clear hover and focus-visible states.",
+        "Motion is subtle and respects reduced-motion preferences.",
+        "Lighthouse-like best practices are followed: no blocking mega-assets; images are optimized and appropriately sized.",
+        "All primary pages have consistent max-width, spacing scale, and typography scale."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global typography scale, spacing conventions, focus-visible styling, and base element defaults; ensure no horizontal overflow and consistent section max-width behavior across the site."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Refine Tailwind theme extensions (spacing, typography, shadows) to support a consistent marketing look and reusable section/card styling."
+        },
+        {
+          "path": "frontend/src/components/marketing/Section.tsx",
+          "operation": "create",
+          "description": "Create a reusable Section wrapper (background variants, padding presets, container sizing) to enforce consistent widths and rhythm across pages."
+        },
+        {
+          "path": "frontend/src/hooks/useRevealOnScroll.ts",
+          "operation": "create",
+          "description": "Implement a lightweight IntersectionObserver-based reveal hook for subtle fade/slide-in animations that respects reduced-motion preferences and avoids performance issues."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Apply consistent section wrappers, hover/focus styles on interactive cards/CTAs, and scroll reveal motion where appropriate without overwhelming the page."
+        },
+        {
+          "path": "frontend/src/pages/PlatformPage.tsx",
+          "operation": "modify",
+          "description": "Apply consistent section wrappers, typography hierarchy, and interactive states matching the global styling system."
+        },
+        {
+          "path": "frontend/src/pages/SolutionsPage.tsx",
+          "operation": "modify",
+          "description": "Apply consistent section wrappers, typography hierarchy, and interactive states matching the global styling system."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Apply consistent section wrappers, typography hierarchy, and interactive states matching the global styling system."
+        },
+        {
+          "path": "frontend/src/pages/ResourcesListPage.tsx",
+          "operation": "modify",
+          "description": "Ensure resource cards are responsive, keyboard accessible, and visually polished with clear focus-visible styling."
+        },
+        {
+          "path": "frontend/src/pages/ResourceDetailPage.tsx",
+          "operation": "modify",
+          "description": "Ensure article typography is readable (prose styling), images are sized appropriately, and related items are responsive and accessible."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create and apply a cohesive, modern B2B visual theme (not blue/purple-dominant) with consistent colors, typography, and component styles across all pages.",
+      "acceptanceCriteria": [
+        "A consistent theme is applied across all pages (same button styles, heading styles, spacing, and card styles).",
+        "Primary palette is not blue/purple-dominant; use an alternative (e.g., charcoal/off-white with green/teal accents).",
+        "Typography hierarchy is clear (H1/H2/H3/body) and consistent across pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define theme tokens using CSS variables (charcoal/off-white base with green/teal accents), set default font stacks, and establish consistent heading/body styles across the app."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Map Tailwind color roles (primary/secondary/accent/background/foreground/card) to the theme tokens to keep component styling consistent and non-blue/purple dominant."
+        },
+        {
+          "path": "frontend/src/components/marketing/MarketingPrimitives.tsx",
+          "operation": "create",
+          "description": "Create composable marketing primitives (e.g., PrimaryButton variant wrapper, Badge, Stat block) that standardize buttons/cards/section accents without modifying immutable UI component files. Use shadcn-ui components by composition; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add route-level SEO + social metadata and enforce accessible semantics (landmarks, headings, alt text).",
+      "acceptanceCriteria": [
+        "Each primary page sets a unique title and meta description.",
+        "OpenGraph tags are present and reference a generated OG image asset.",
+        "All images have appropriate alt text; pages use semantic headings and landmarks (header/nav/main/footer)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/package.json",
+          "operation": "modify",
+          "description": "Add any needed lightweight SEO/head management dependency (e.g., react-helmet-async) and ensure build scripts remain compatible with the existing template."
+        },
+        {
+          "path": "frontend/src/components/seo/Seo.tsx",
+          "operation": "create",
+          "description": "Create a reusable SEO component to set per-page title/description and OpenGraph tags referencing the static OG image asset."
+        },
+        {
+          "path": "frontend/public/assets/generated/og-image.dim_1200x630.png",
+          "operation": "create",
+          "description": "Add the generated OpenGraph preview image as a static frontend asset and reference it from SEO metadata for primary routes."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure hero and section images include descriptive alt text and headings follow a semantic hierarchy."
+        },
+        {
+          "path": "frontend/src/pages/PlatformPage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure semantic headings and alt text."
+        },
+        {
+          "path": "frontend/src/pages/SolutionsPage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure semantic headings and alt text."
+        },
+        {
+          "path": "frontend/src/pages/ResourcesListPage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure resource card images and icons have appropriate alt/aria labeling."
+        },
+        {
+          "path": "frontend/src/pages/ResourceDetailPage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure article landmarks and heading structure are accessible."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure semantic headings and alt text."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Set a unique title/description and OpenGraph metadata via the shared SEO component; ensure form fields have labels, errors are announced accessibly, and landmarks/headings are semantic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Ensure the frontend is runnable and deployable in the template environment with working navigation and end-to-end contact submission wiring.",
+      "acceptanceCriteria": [
+        "Project builds successfully without manual edits.",
+        "Navigation between pages works in the deployed environment.",
+        "Contact form submission works end-to-end (frontend to backend)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure all required routes are registered and navigable from the header/footer, with no orphan pages; verify client-side routing works on refresh in the deployed environment configuration."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Verify end-to-end wiring for contact submission using the existing actor connection (useActor) and the save-contact hook; ensure user-visible success/error states are present and stable."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure app providers (query client, identity provider, and any SEO provider if introduced) are correctly composed so the app runs without manual edits."
+        }
+      ]
+    }
+  ]
+}

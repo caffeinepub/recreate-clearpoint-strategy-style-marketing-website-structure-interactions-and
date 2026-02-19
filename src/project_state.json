@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a website matching the look and functionality of https://www.clearpointstrategy.com/ and deliver the complete output.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Abstract hero illustration with geometric shapes, modern corporate style (hero-illustration.dim_1600x900.png)\n- Row of 6 generic partner logos in monochrome style (partner-logos-strip.dim_1600x200.png)\n- Set of 6 simple outline feature icons (feature-icons-set.dim_1024x1024.png)\n- Testimonial portrait placeholders (3 headshots, neutral background) (testimonials-headshots.dim_900x300.png)\n- OpenGraph preview image with abstract shapes and title-safe area (og-image.dim_1200x630.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-multi-page-marketing-website-that-closely-matches-the-information-architecture-and-ux-patterns-of-https-www-clearpointstrategy-com-header-navigation-homepage-sections-inner-pages-footer-using-original-copy-and-assets-no-proprietary-text-images-copied-from-the-reference-site",
+      "title": "Build a multi-page marketing website that closely matches the information architecture and UX patterns of https://www.clearpointstrategy.com/ (header navigation, homepage sections, inner pages, footer), using original copy and assets (no proprietary text/images copied from the reference site).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-homepage-with-clear-scroll-based-sections-comparable-to-the-reference-site-s-homepage-hero-social-proof-feature-value-sections-benefits-testimonials-case-studies-preview-resources-preview-and-final-cta-band-including-appropriate-spacing-typography-hierarchy-and-section-transitions",
+      "title": "Implement the homepage with clear, scroll-based sections comparable to the reference site’s homepage (hero, social proof, feature/value sections, benefits, testimonials/case studies preview, resources preview, and final CTA band), including appropriate spacing, typography hierarchy, and section transitions.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-resources-area-that-supports-listing-content-cards-and-viewing-a-content-detail-page-with-client-side-routing-and-consistent-templates-title-summary-cover-image-body-content-author-date-and-related-items",
+      "title": "Create a Resources area that supports listing content cards and viewing a content detail page, with client-side routing and consistent templates (title, summary, cover image, body content, author/date, and related items).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-page-with-a-form-name-email-company-organization-message-and-clear-success-error-states-persist-form-submissions-in-the-motoko-backend-and-expose-a-read-api-for-later-retrieval",
+      "title": "Add a Contact page with a form (name, email, company/organization, message) and clear success/error states. Persist form submissions in the Motoko backend and expose a read API for later retrieval.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-site-wide-ui-polish-similar-to-the-reference-site-consistent-section-widths-large-type-marketing-typography-hover-focus-states-accessible-contrast-and-light-motion-e-g-subtle-fade-slide-in-on-scroll-without-harming-performance",
+      "title": "Implement site-wide UI polish similar to the reference site: consistent section widths, large-type marketing typography, hover/focus states, accessible contrast, and light motion (e.g., subtle fade/slide-in on scroll) without harming performance.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-creative-coherent-visual-theme-suitable-for-a-modern-b2b-strategy-software-marketing-site-avoid-a-blue-purple-dominant-palette-define-and-use-a-consistent-system-for-colors-typography-buttons-cards-and-section-backgrounds-across-all-pages",
+      "title": "Apply a creative, coherent visual theme suitable for a modern B2B strategy/software marketing site (avoid a blue/purple-dominant palette). Define and use a consistent system for colors, typography, buttons, cards, and section backgrounds across all pages.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-seo-and-social-metadata-for-all-primary-routes-title-description-opengraph-image-and-ensure-accessible-semantics-landmarks-headings-alt-text-for-images",
+      "title": "Add basic SEO and social metadata for all primary routes (title, description, OpenGraph image) and ensure accessible semantics (landmarks, headings, alt text for images).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deliver-the-complete-runnable-project-output-frontend-motoko-backend-so-the-site-can-be-built-and-deployed-as-is-on-the-internet-computer-template-environment",
+      "title": "Deliver the complete runnable project output (frontend + Motoko backend) so the site can be built and deployed as-is on the Internet Computer template environment.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website exactly like https://www.clearpointstrategy.com/ and provide the full output (site build).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Recreate ClearPoint Strategy-style marketing website (structure, interactions, and responsive UI)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
